@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="mr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>सरकारी सहायक · Sarkari Sahayak</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --g: #146b43;
+  --gl: rgba(230, 244, 236, 0.7);
+  --amber: #e09a12;
+  --red: #b9473c;
+  --grey: #8b8f94;
+  --bg: #e8f0eb;
+  --ink: #1d2421;
+  --line: rgba(217, 222, 216, 0.5);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  background-image: radial-gradient(at 0% 0%, rgba(20, 107, 67, 0.08) 0px, transparent 50%),
+                    radial-gradient(at 100% 0%, rgba(224, 154, 18, 0.08) 0px, transparent 50%),
+                    radial-gradient(at 100% 100%, rgba(20, 107, 67, 0.08) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font: 15px/1.6 "Inter", "Outfit", "Noto Sans Devanagari", "Mukta", system-ui, -apple-system, sans-serif;
+}
+header {
+  background: rgba(20, 107, 67, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  padding: 16px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+header h1 { margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.5px; }
+header small { opacity: 0.9; display: block; font-size: 13px; margin-top: 4px; }
+.langs button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font: inherit;
+  margin-left: 8px;
+  transition: all 0.2s ease;
+}
+.langs button:hover { background: rgba(255, 255, 255, 0.2); }
+.langs button.on { background: #fff; color: var(--g); font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.notice { background: rgba(255, 247, 224, 0.9); backdrop-filter: blur(8px); border-bottom: 1px solid #ecd9a0; padding: 8px 24px; font-size: 13px; color: #7a5c00; }
+main { display: grid; grid-template-columns: minmax(300px, 420px) 1fr; gap: 24px; padding: 24px; max-width: 1300px; margin: auto; }
+@media(min-width: 901px) {
+  main > section:first-child {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    padding-right: 8px; /* space for scrollbar */
+  }
+  /* Optional: Custom scrollbar for the sticky section */
+  main > section:first-child::-webkit-scrollbar { width: 6px; }
+  main > section:first-child::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 4px; }
+}
+@media(max-width:900px){ main { grid-template-columns: 1fr; } }
+.panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease;
+}
+.panel:hover { transform: translateY(-2px); }
+.panel h3 { margin: 0 0 12px; font-size: 15px; color: var(--g); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+textarea, input[type=text], input[type=number] {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font: inherit;
+  background: rgba(255, 255, 255, 0.6);
+  transition: all 0.2s ease;
+}
+textarea { min-height: 100px; resize: vertical; }
+textarea:focus, input:focus { outline: none; border-color: var(--g); background: #fff; box-shadow: 0 0 0 3px rgba(20, 107, 67, 0.1); }
+button { font: inherit; cursor: pointer; transition: all 0.2s ease; }
+.btn { background: var(--g); color: #fff; border: none; border-radius: 10px; padding: 10px 18px; font-weight: 500; }
+.btn:hover { background: #0e4d31; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(20, 107, 67, 0.2); }
+.btn:active { transform: translateY(0); }
+.btn.alt { background: transparent; color: var(--g); border: 2px solid var(--g); padding: 8px 16px; }
+.btn.alt:hover { background: rgba(20, 107, 67, 0.05); }
+.btn.rec { background: var(--red); border-color: var(--red); color: #fff; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(185, 71, 60, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(185, 71, 60, 0); } 100% { box-shadow: 0 0 0 0 rgba(185, 71, 60, 0); } }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; background: rgba(255, 255, 255, 0.8); border: 1px solid var(--line); border-radius: 20px; padding: 4px 12px; font-size: 13.5px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+.chip button { border: 0; background: rgba(0,0,0,0.05); border-radius: 50%; color: #555; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; padding: 0; }
+.chip button:hover { background: rgba(0,0,0,0.1); color: var(--red); }
+.sample { background: rgba(255,255,255,0.5); border: 1px dashed rgba(20, 107, 67, 0.4); color: #39443e; border-radius: 10px; padding: 6px 12px; font-size: 13px; text-align: left; transition: all 0.2s; }
+.sample:hover { background: rgba(255,255,255,0.9); border-color: var(--g); color: var(--g); transform: translateY(-1px); }
+.q { margin: 10px 0; padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,0.4); }
+.q b { font-weight: 600; display: block; margin-bottom: 8px; font-size: 14.5px; }
+.q .opt { background: #fff; border: 1px solid var(--line); color: var(--ink); border-radius: 20px; padding: 6px 16px; margin: 0 8px 8px 0; transition: all 0.2s ease; }
+.q .opt:hover { background: var(--g); color: #fff; border-color: var(--g); transform: translateY(-1px); box-shadow: 0 2px 6px rgba(20, 107, 67, 0.15); }
+.q .num { display: flex; gap: 8px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.trace { font: 12.5px/1.6 ui-monospace, Menlo, Consolas, monospace; color: #3d4a44; background: rgba(241, 244, 240, 0.7); border-radius: 10px; padding: 12px; max-height: 180px; overflow: auto; border: 1px solid var(--line); }
+.trace i { color: var(--g); font-style: normal; font-weight: 700; }
+#summary { font-weight: 600; margin: 0 0 12px; font-size: 16px; }
+canvas { width: 100%; height: 350px; display: block; background: rgba(255,255,255,0.4); border: 1px solid var(--glass-border); border-radius: 16px; cursor: pointer; box-shadow: var(--shadow); backdrop-filter: blur(10px); transition: transform 0.2s; }
+canvas:hover { transform: scale(1.01); }
+.legend { font-size: 13px; color: #555; margin: 10px 4px 16px; display: flex; gap: 18px; flex-wrap: wrap; }
+.legend span::before { content: ""; display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; background: var(--c); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.card { background: var(--glass-bg); backdrop-filter: blur(16px); border: 1px solid var(--glass-border); border-left: 6px solid var(--grey); border-radius: 14px; padding: 16px; margin-bottom: 14px; box-shadow: var(--shadow); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
+.card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.1); }
+.card.eligible { border-left-color: var(--g); } .card.maybe { border-left-color: var(--amber); } .card.not_eligible { border-left-color: #c9c9c9; opacity: 0.7; }
+.card.sel { box-shadow: 0 0 0 2px rgba(20, 107, 67, 0.4), var(--shadow); background: #fff; opacity: 1; }
+.ch { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.ch b { font-size: 16px; color: var(--ink); } .lvl { font-size: 13px; color: #666; margin-top: 2px; }
+.badge { white-space: nowrap; font-size: 12.5px; padding: 4px 10px; border-radius: 20px; color: #fff; background: var(--grey); font-weight: 600; letter-spacing: 0.3px; }
+.eligible .badge { background: var(--g); } .maybe .badge { background: var(--amber); } .not_eligible .badge { background: #9a9a9a; }
+.one { font-size: 14px; color: #4a554f; margin-top: 8px; line-height: 1.5; }
+.closed { background: #eef2f8; border: 1px solid #c9d5e8; color: #2c4770; border-radius: 8px; padding: 6px 10px; font-size: 13.5px; margin-top: 10px; }
+.body { margin-top: 12px; border-top: 1px dashed var(--line); padding-top: 12px; font-size: 14.5px; display: none; }
+.card.sel .body { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+.body h4 { margin: 14px 0 6px; font-size: 14px; color: var(--g); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.body ul { margin: 0; padding-left: 20px; color: #333; } .rules { list-style: none; padding: 0!important; }
+.rules li { margin-bottom: 4px; display: flex; align-items: flex-start; gap: 8px; }
+.rules li::before { content: attr(data-i); display: inline-block; width: 16px; font-weight: 700; flex-shrink: 0; text-align: center; }
+.rules li.pass::before { color: var(--g); } .rules li.fail::before { color: var(--red); } .rules li.unknown::before { color: var(--amber); }
+.small { font-size: 12.5px; color: #5b655f; } a { color: #1a5fb4; text-decoration: none; font-weight: 500; transition: color 0.2s; } a:hover { color: #0f407a; text-decoration: underline; }
+footer { max-width: 1300px; margin: 0 auto; padding: 12px 24px 32px; font-size: 13px; color: #717d76; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <div><h1 id="t-title"></h1><small id="t-tag"></small></div>
+  <div class="langs"><button data-l="mr">मराठी</button><button data-l="hi">हिंदी</button><button data-l="en">English</button></div>
+</header>
+<div class="notice" id="t-notice"></div>
+
+<main>
+<section>
+  <div class="panel">
+    <h3 id="t-ask-h"></h3>
+    <textarea id="text"></textarea>
+    <div class="row">
+      <button class="btn" id="go"></button>
+      <button class="btn alt" id="mic"></button>
+    </div>
+    <div class="row" id="samples"></div>
+  </div>
+  <div class="panel" id="facts-p"><h3 id="t-facts"></h3><div class="row" id="facts" style="margin-top:0"></div></div>
+  <div class="panel"><h3 id="t-follow"></h3><div id="questions"></div></div>
+  <div class="panel"><h3 id="t-details"></h3>
+    <div class="grid2">
+      <input type="text" id="d-name"><input type="text" id="d-mobile" inputmode="numeric">
+      <input type="text" id="d-village"><input type="text" id="d-district">
+    </div>
+    <div class="small" id="t-priv" style="margin-top:6px"></div>
+  </div>
+  <div class="panel"><h3 id="t-trace"></h3><div class="trace" id="trace"></div></div>
+</section>
+
+<section>
+  <p id="summary"></p>
+  <canvas id="map"></canvas>
+  <div class="legend"><span style="--c:#146b43" id="lg1"></span><span style="--c:#e09a12" id="lg2"></span><span style="--c:#b9b9b9" id="lg3"></span></div>
+  <div id="cards"></div>
+</section>
+</main>
+<footer id="t-foot"></footer>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const DETAILS = ['name','mobile','village','district'];
+
+/* ---------- UI strings (Marathi / Hindi / English) ---------- */
+const I = {
+ mr:{title:"सरकारी सहायक",tag:"तुमची परिस्थिती सांगा (बोलून किंवा लिहून) - योग्य सरकारी योजना, कागदपत्रांची यादी आणि भरलेला मसुदा अर्ज मिळवा.",
+  notice:"डेमो · तुमच्या संगणकावरच चालते · काहीही साठवले जात नाही · आधार/बँक क्रमांक कधीही विचारले जात नाहीत · योजनांची माहिती सार्वजनिक स्रोतांवरून तपासली - अर्जापूर्वी अधिकृत साइटवर खात्री करा.",
+  askh:"तुमच्याबद्दल सांगा",ph:"उदा. मी ६८ वर्षांचा आहे, वार्षिक उत्पन्न १५,००० रुपये, १५ वर्षांपासून महाराष्ट्रात राहतो, पेन्शन नाही…",go:"योजना शोधा",mic:"🎤 बोला",micOn:"⏹ ऐकत आहे…",
+  nomic:"या ब्राउझरमध्ये आवाज ओळख नाही (Chrome/Edge वापरा). कृपया लिहा.",
+  samples:["६८ वर्षांचा पुरुष, उत्पन्न १५ हजार, १५ वर्षे महाराष्ट्रात, पेन्शन नाही","४२ वर्षांची विधवा, उत्पन्न १८ हजार, २० वर्षे महाराष्ट्रात, पिवळी शिधापत्रिका, गॅस कनेक्शन नाही","२० वर्षांचा विद्यार्थी, कुटुंबाचे उत्पन्न ६ लाख, खुल्या प्रवर्गातून प्रवेश, शिष्यवृत्ती नाही"],
+  facts:"मला समजलेली माहिती (चुकीची असल्यास ✕ दाबा)",nofacts:"अजून काही नाही - वर लिहा किंवा बोला.",follow:"आणखी माहिती द्या - निकाल अधिक अचूक होईल",done:"आणखी प्रश्न नाहीत 👍",
+  yes:"होय",no:"नाही",ok:"ठीक",details:"PDF साठी तुमचा तपशील (ऐच्छिक)",name:"नाव",mobile:"मोबाईल",village:"गाव / शहर",district:"जिल्हा",
+  priv:"आधार किंवा बँक खाते क्रमांक येथे भरू नका - PDF मध्ये ते रिकामे ठेवले जातात, हाताने भरा.",trace:"एजंट काय करत आहे (टूल कॉल्स)",you:"तुम्ही",
+  st:{eligible:"पात्र दिसते",maybe:"आणखी माहिती हवी",not_eligible:"लागू नाही"},closed:"अर्ज बंद",auto:"आपोआप",
+  need:"हवी असलेली माहिती",why:"पात्रता तपासणी",docs:"कागदपत्रे",apply:"अर्ज कुठे",note:"टीप",src:"स्रोत",ver:"माहिती तपासली",conf:"विश्वासार्हता",
+  pdf:"📄 भरलेला मसुदा अर्ज (PDF)",speak:"🔊 वाचून दाखवा",lg:["पात्र दिसते","आणखी माहिती हवी","लागू नाही"],whyNot:"कारण",
+  foot:"सरकारी सहायक - डेमो प्रोटोटाइप. हा सरकारी सल्ला नाही; अंतिम पात्रता संबंधित कार्यालय ठरवते.",
+  fl:{gender:"लिंग",age:"वय",family_income:"वार्षिक उत्पन्न",residency_years:"महाराष्ट्रात वर्षे",bank_aadhaar_linked:"आधार-लिंक्ड बँक खाते",ration_card:"शिधापत्रिका",bpl:"BPL",land_owner:"शेतजमीन",income_tax_payer:"आयकरदाता",govt_employee:"सरकारी कर्मचारी",pm_kisan_beneficiary:"पीएम-किसान",special_status:"विशेष स्थिती",gets_other_pension:"इतर पेन्शन",is_student:"विद्यार्थी",admission_category:"प्रवेश प्रवर्ग",gets_other_scholarship:"इतर शिष्यवृत्ती",has_lpg:"गॅस जोडणी",resident_mh:"महाराष्ट्र रहिवासी"}},
+ hi:{title:"सरकारी सहायक",tag:"अपनी स्थिति बताइए (बोलकर या लिखकर) - सही सरकारी योजनाएँ, दस्तावेज़ों की सूची और भरा हुआ मसौदा आवेदन पाइए।",
+  notice:"डेमो · आपके कंप्यूटर पर ही चलता है · कुछ भी सहेजा नहीं जाता · आधार/बैंक नंबर कभी नहीं माँगे जाते · योजनाओं की जानकारी सार्वजनिक स्रोतों से जाँची गई - आवेदन से पहले आधिकारिक साइट पर पुष्टि करें।",
+  askh:"अपने बारे में बताइए",ph:"जैसे: मैं 68 साल का हूँ, सालाना आय 15,000 रुपये, 15 साल से महाराष्ट्र में रहता हूँ, पेंशन नहीं…",go:"योजनाएँ खोजें",mic:"🎤 बोलिए",micOn:"⏹ सुन रहा हूँ…",
+  nomic:"इस ब्राउज़र में आवाज़ पहचान नहीं है (Chrome/Edge उपयोग करें)। कृपया लिखें।",
+  samples:["68 साल का पुरुष, आय 15 हजार, 15 साल से महाराष्ट्र में, पेंशन नहीं","42 साल की विधवा, आय 18 हजार, 20 साल से महाराष्ट्र में, पीला राशन कार्ड, गैस कनेक्शन नहीं है","20 साल का छात्र, परिवार की आय 6 लाख, खुला श्रेणी से प्रवेश, छात्रवृत्ति नहीं"],
+  facts:"मुझे जो समझ आया (गलत हो तो ✕ दबाएँ)",nofacts:"अभी कुछ नहीं - ऊपर लिखें या बोलें।",follow:"थोड़ी और जानकारी दें - नतीजे और सटीक होंगे",done:"और सवाल नहीं 👍",
+  yes:"हाँ",no:"नहीं",ok:"ठीक",details:"PDF के लिए आपका विवरण (वैकल्पिक)",name:"नाम",mobile:"मोबाइल",village:"गाँव / शहर",district:"जिला",
+  priv:"आधार या बैंक खाता नंबर यहाँ न भरें - PDF में ये खाली रहते हैं, हाथ से भरें।",trace:"एजेंट क्या कर रहा है (टूल कॉल)",you:"आप",
+  st:{eligible:"पात्र दिखता है",maybe:"और जानकारी चाहिए",not_eligible:"लागू नहीं"},closed:"आवेदन बंद",auto:"स्वतः",
+  need:"चाहिए जानकारी",why:"पात्रता जाँच",docs:"दस्तावेज़",apply:"आवेदन कहाँ",note:"टिप्पणी",src:"स्रोत",ver:"जानकारी जाँची गई",conf:"विश्वसनीयता",
+  pdf:"📄 भरा हुआ मसौदा आवेदन (PDF)",speak:"🔊 पढ़कर सुनाएँ",lg:["पात्र दिखता है","और जानकारी चाहिए","लागू नहीं"],whyNot:"कारण",
+  foot:"सरकारी सहायक - डेमो प्रोटोटाइप। यह सरकारी सलाह नहीं है; अंतिम पात्रता संबंधित कार्यालय तय करता है।",
+  fl:{gender:"लिंग",age:"आयु",family_income:"वार्षिक आय",residency_years:"महाराष्ट्र में वर्ष",bank_aadhaar_linked:"आधार-लिंक्ड बैंक खाता",ration_card:"राशन कार्ड",bpl:"BPL",land_owner:"खेती की जमीन",income_tax_payer:"आयकरदाता",govt_employee:"सरकारी कर्मचारी",pm_kisan_beneficiary:"पीएम-किसान",special_status:"विशेष स्थिति",gets_other_pension:"अन्य पेंशन",is_student:"छात्र",admission_category:"प्रवेश श्रेणी",gets_other_scholarship:"अन्य छात्रवृत्ति",has_lpg:"गैस कनेक्शन",resident_mh:"महाराष्ट्र निवासी"}},
+ en:{title:"Sarkari Sahayak",tag:"Tell me your situation (speak or type) - get the right government schemes, a document checklist and a filled draft form.",
+  notice:"Demo · runs on your own computer · nothing is stored · Aadhaar / bank numbers are never asked · scheme data verified from public sources - confirm on the official site before applying.",
+  askh:"Tell me about yourself",ph:"e.g. I am a 68 year old man, family income 15 thousand, 15 years in Maharashtra, no pension…",go:"Find schemes",mic:"🎤 Speak",micOn:"⏹ Listening…",
+  nomic:"Voice input is not available in this browser (use Chrome/Edge). Please type.",
+  samples:["68 year old man, family income 15 thousand, 15 years in Maharashtra, no pension","I am a 42 year old widow, income 18 thousand, 20 years in Maharashtra, yellow ration card, no gas connection","20 year old student, family income 6 lakh, admitted under open category, no other scholarship"],
+  facts:"What I understood (press ✕ if wrong)",nofacts:"Nothing yet - type or speak above.",follow:"A few more answers make the result more accurate",done:"No more questions 👍",
+  yes:"Yes",no:"No",ok:"OK",details:"Your details for the PDF (optional)",name:"Name",mobile:"Mobile",village:"Village / Town",district:"District",
+  priv:"Do not enter Aadhaar or bank numbers here - the PDF leaves them blank for you to fill by hand.",trace:"What the agent is doing (tool calls)",you:"You",
+  st:{eligible:"Looks eligible",maybe:"Need more info",not_eligible:"Not a match"},closed:"Applications closed",auto:"Automatic",
+  need:"Still needed",why:"Eligibility check",docs:"Documents",apply:"Where to apply",note:"Note",src:"Sources",ver:"Verified",conf:"Confidence",
+  pdf:"📄 Filled draft form (PDF)",speak:"🔊 Read aloud",lg:["Looks eligible","Need more info","Not a match"],whyNot:"Why",
+  foot:"Sarkari Sahayak - demo prototype. Not government advice; the concerned office decides final eligibility.",
+  fl:{gender:"Gender",age:"Age",family_income:"Annual income",residency_years:"Years in Maharashtra",bank_aadhaar_linked:"Aadhaar-linked bank a/c",ration_card:"Ration card",bpl:"BPL",land_owner:"Farmland",income_tax_payer:"Income-tax payer",govt_employee:"Govt employee",pm_kisan_beneficiary:"PM-KISAN",special_status:"Special status",gets_other_pension:"Other pension",is_student:"Student",admission_category:"Admission category",gets_other_scholarship:"Other scholarship",has_lpg:"LPG connection",resident_mh:"Maharashtra resident"}}
+};
+const SPEECH = {mr:'mr-IN',hi:'hi-IN',en:'en-IN'};
+const state = {lang:'mr', profile:{}, data:null, selected:null, trace:[]};
+const t = () => I[state.lang];
+
+/* ---------- talking to the server ---------- */
+async function call(payload){
+  const r = await fetch('/api/chat', {method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(Object.assign({lang:state.lang, profile:state.profile}, payload))});
+  const d = await r.json();
+  state.data = d;
+  state.profile = Object.assign({}, d.raw_profile);
+  DETAILS.forEach(k => { if (d.raw_profile[k]) $('#d-'+k).value = d.raw_profile[k]; });
+  (d.trace||[]).forEach(x => state.trace.push(x));
+  if (!state.selected || !d.results.some(x => x.id === state.selected))
+    state.selected = (d.results.find(x => x.status === 'eligible') || {}).id || null;
+  render();
+}
+function collectDetails(){ DETAILS.forEach(k => { const v = $('#d-'+k).value.trim(); if (v) state.profile[k] = v; else delete state.profile[k]; }); }
+function ask(){ collectDetails(); const text = $('#text').value; $('#text').value = ''; call({text, profile:state.profile}); }
+function answer(field, value){ collectDetails(); call({answers:{[field]:value}, profile:state.profile}); }
+
+/* ---------- render ---------- */
+function fmtFact(f, v){
+  const o = state.data.option_labels[f]; if (o && o[v] !== undefined) return o[v];
+  if (v === true) return t().yes; if (v === false) return t().no;
+  if (f === 'family_income') return '₹' + Number(v).toLocaleString('en-IN');
+  return v;
+}
+function renderFacts(){
+  const keys = Object.keys(state.profile).filter(k => !DETAILS.includes(k) && t().fl[k]);
+  $('#facts').innerHTML = keys.length ? keys.map(k =>
+    `<span class="chip">${esc(t().fl[k])}: <b>${esc(fmtFact(k, state.profile[k]))}</b><button data-k="${k}" title="✕">✕</button></span>`).join('')
+    : `<span class="small">${t().nofacts}</span>`;
+  $('#facts').querySelectorAll('button').forEach(b => b.onclick = () => answer(b.dataset.k, null));
+}
+function renderQuestions(){
+  const qs = state.data.questions;
+  $('#questions').innerHTML = qs.length ? '' : `<span class="small">${t().done}</span>`;
+  qs.forEach(q => {
+    const d = document.createElement('div'); d.className = 'q';
+    d.innerHTML = `<b>${esc(q.q)}</b>`;
+    if (q.type === 'int') {
+      d.insertAdjacentHTML('beforeend', `<div class="num"><input type="text" inputmode="numeric"><button class="btn">${t().ok}</button></div>`);
+      const inp = d.querySelector('input'), go = () => {
+        let v = inp.value.replace(/,/g, '').replace(/[०-९]/g, d => '0123456789'['०१२३४५६७८९'.indexOf(d)]);
+        if(v !== '' && !isNaN(v)) answer(q.field, Number(v));
+      };
+      d.querySelector('button').onclick = go; inp.onkeydown = e => e.key === 'Enter' && go();
+    } else {
+      const opts = q.type === 'bool' ? [{value:true,label:t().yes},{value:false,label:t().no}] : q.options;
+      opts.forEach(o => { const b = document.createElement('button'); b.className = 'opt'; b.textContent = o.label; b.onclick = () => answer(q.field, o.value); d.appendChild(b); });
+    }
+    $('#questions').appendChild(d);
+  });
+}
+function oneLiner(r){
+  if (r.status === 'eligible') return esc(r.benefit);
+  if (r.status === 'maybe') {
+    const fl = r.missing.map(m => t().fl[m]).filter(Boolean);
+    return fl.length ? `${t().need}: ${esc(fl.join(', '))}` : esc(r.benefit);
+  }
+  const f = r.rules.find(x => x.state === 'fail' && !x.soft); return f ? `${t().whyNot}: ${esc(f.label)}` : '';
+}
+function renderCards(){
+  $('#cards').innerHTML = '';
+  state.data.results.forEach(r => {
+    const sel = state.selected === r.id, d = document.createElement('div');
+    d.className = `card ${r.status}${sel ? ' sel' : ''}`; d.id = 'c-' + r.id;
+    const closed = r.apply_status === 'closed' ? `<div class="closed">🔒 <b>${t().closed}</b> - ${esc(r.status_note)}</div>` : '';
+    let body = '';
+    if (sel) {
+      const icon = {pass:'✓', fail:'✕', unknown:'?'};
+      body = `<div class="body"><div>${esc(r.benefit)}</div>
+        <h4>${t().why}</h4><ul class="rules">${r.rules.map(x => `<li class="${x.state}" data-i="${icon[x.state]}">${esc(x.label)}</li>`).join('')}</ul>
+        ${r.apply_status !== 'closed' ? `<h4>${t().note}</h4><div>${esc(r.status_note)}</div>` : ''}
+        ${r.status !== 'not_eligible' ? `<h4>${t().docs}</h4><ul>${r.documents.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+        <h4>${t().apply}</h4><div>${esc(r.apply.where)} - <a href="${esc(r.apply.url)}" target="_blank" rel="noopener">${esc(r.apply.url.replace(/^https?:\/\//,''))}</a></div>
+        <div class="small" style="margin-top:6px">${esc(r.caveat)}</div>
+        <div class="small" style="margin-top:6px">${t().ver}: ${state.data.verified_on} · ${t().conf}: ${esc(r.confidence)} · ${t().src}: ${r.sources.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(new URL(u).hostname)}</a>`).join(', ')}</div>
+        <div class="row"><button class="btn" data-a="pdf">${t().pdf}</button><button class="btn alt" data-a="speak">${t().speak}</button></div></div>`;
+    }
+    d.innerHTML = `<div class="ch"><div><b>${esc(r.name)}</b><div class="lvl">${esc(r.level)}</div></div><span class="badge">${t().st[r.status]}</span></div>
+      <div class="one">${oneLiner(r)}</div>${closed && !sel ? closed : ''}${body}`;
+    d.querySelector('.ch').onclick = () => select(r.id);
+    d.querySelectorAll('[data-a]').forEach(b => b.onclick = () => b.dataset.a === 'pdf' ? downloadPdf(r) : speak(r));
+    $('#cards').appendChild(d);
+  });
+}
+function select(id){ state.selected = state.selected === id ? null : id; renderCards(); if (state.selected) $('#c-'+id).scrollIntoView({block:'nearest',behavior:'smooth'}); }
+function renderTrace(){
+  $('#trace').innerHTML = state.trace.slice(-8).map(x => `<div><i>▶ ${x.tool}</i> ${esc(x.detail)} <span class="small">${x.ms}ms</span></div>`).join('');
+  $('#trace').scrollTop = 1e6;
+}
+function render(){
+  $('#summary').textContent = state.data.summary;
+  renderFacts(); renderQuestions(); renderCards(); renderTrace(); layoutMap();
+}
+function applyI18n(){
+  const s = t(); document.documentElement.lang = state.lang; document.title = s.title;
+  $('#t-title').textContent = s.title; $('#t-tag').textContent = s.tag; $('#t-notice').textContent = s.notice;
+  $('#t-ask-h').textContent = s.askh; $('#text').placeholder = s.ph; $('#go').textContent = s.go; $('#mic').textContent = micOn ? s.micOn : s.mic;
+  $('#t-facts').textContent = s.facts; $('#t-follow').textContent = s.follow; $('#t-details').textContent = s.details; $('#t-priv').textContent = s.priv; $('#t-trace').textContent = s.trace;
+  ['name','mobile','village','district'].forEach(k => $('#d-'+k).placeholder = s[k]);
+  ['lg1','lg2','lg3'].forEach((id,i) => $('#'+id).textContent = s.lg[i]); $('#t-foot').textContent = s.foot;
+  $('#samples').innerHTML = ''; s.samples.forEach(x => { const b = document.createElement('button'); b.className = 'sample'; b.textContent = x; b.onclick = () => { $('#text').value = x; ask(); }; $('#samples').appendChild(b); });
+  document.querySelectorAll('.langs button').forEach(b => b.classList.toggle('on', b.dataset.l === state.lang));
+}
+document.querySelectorAll('.langs button').forEach(b => b.onclick = () => { state.lang = b.dataset.l; applyI18n(); collectDetails(); call({}); });
+
+/* ---------- canvas: the scheme map ---------- */
+const cv = $('#map'), ctx = cv.getContext('2d');
+const COL = {eligible:'#146b43', maybe:'#e09a12', not_eligible:'#b9b9b9'};
+let nodes = [], W = 0, H = 0;
+function layoutMap(){
+  const dpr = window.devicePixelRatio || 1; W = cv.clientWidth; H = cv.clientHeight;
+  cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const rs = state.data ? state.data.results : [], n = rs.length || 1;
+  nodes = rs.map((r, i) => { const a = -Math.PI/2 + i * 2*Math.PI/n; return {r, x: W/2 + Math.cos(a) * W*0.36, y: H/2 + Math.sin(a) * H*0.34}; });
+}
+function draw(now){
+  ctx.clearRect(0, 0, W, H);
+  const cx = W/2, cy = H/2;
+  nodes.forEach((n, i) => {
+    const c = COL[n.r.status];
+    ctx.strokeStyle = c + (n.r.status === 'not_eligible' ? '66' : 'aa'); ctx.lineWidth = n.r.status === 'eligible' ? 2.2 : 1.4;
+    ctx.setLineDash(n.r.status === 'maybe' ? [5, 5] : []); ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(n.x, n.y); ctx.stroke(); ctx.setLineDash([]);
+    if (n.r.status !== 'not_eligible') {   // a data packet travelling from you to the scheme
+      const p = ((now / (n.r.status === 'eligible' ? 1400 : 2600)) + i * 0.17) % 1;
+      ctx.fillStyle = c; ctx.beginPath(); ctx.arc(cx + (n.x - cx) * p, cy + (n.y - cy) * p, 3.4, 0, 7); ctx.fill();
+    }
+  });
+  ctx.fillStyle = '#0e4d31'; ctx.beginPath(); ctx.arc(cx, cy, 34, 0, 7); ctx.fill();
+  ctx.fillStyle = '#fff'; ctx.font = '600 14px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(t().you, cx, cy);
+  nodes.forEach(n => {
+    const sel = state.selected === n.r.id, c = COL[n.r.status];
+    ctx.fillStyle = '#fff'; ctx.strokeStyle = c; ctx.lineWidth = sel ? 5 : 3;
+    ctx.beginPath(); ctx.arc(n.x, n.y, 24, 0, 7); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = c; ctx.font = '700 18px sans-serif'; ctx.fillText({eligible:'✓', maybe:'?', not_eligible:'✕'}[n.r.status], n.x, n.y + 1);
+    ctx.fillStyle = '#1d2421'; ctx.font = (sel ? '700 ' : '500 ') + '12.5px sans-serif';
+    ctx.fillText(n.r.short, n.x, n.y + (n.y > cy ? 40 : -38));
+    if (n.r.apply_status === 'closed') { ctx.fillStyle = '#2c4770'; ctx.font = '11px sans-serif'; ctx.fillText('🔒 ' + t().closed, n.x, n.y + (n.y > cy ? 54 : -52)); }
+  });
+  requestAnimationFrame(draw);
+}
+cv.onclick = e => {
+  const b = cv.getBoundingClientRect(), x = e.clientX - b.left, y = e.clientY - b.top;
+  const hit = nodes.find(n => Math.hypot(n.x - x, n.y - y) < 32); if (hit) select(hit.r.id);
+};
+window.addEventListener('resize', () => state.data && layoutMap());
+
+/* ---------- voice in / voice out ---------- */
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition; let rec = null, micOn = false;
+$('#mic').onclick = () => {
+  if (!SR) return alert(t().nomic);
+  if (micOn) return rec.stop();
+  rec = new SR(); rec.lang = SPEECH[state.lang]; rec.interimResults = true; rec.continuous = false;
+  const base = $('#text').value ? $('#text').value + ' ' : '';
+  rec.onresult = e => { $('#text').value = base + Array.from(e.results).map(r => r[0].transcript).join(' '); };
+  rec.onend = () => { micOn = false; $('#mic').classList.remove('rec'); $('#mic').textContent = t().mic; if ($('#text').value.trim()) ask(); };
+  rec.onerror = () => { micOn = false; $('#mic').classList.remove('rec'); $('#mic').textContent = t().mic; };
+  micOn = true; $('#mic').classList.add('rec'); $('#mic').textContent = t().micOn; rec.start();
+};
+function speak(r){
+  if (!window.speechSynthesis) return;
+  speechSynthesis.cancel();
+  const parts = [r.name, t().st[r.status], r.benefit, r.status !== 'not_eligible' ? t().docs + ': ' + r.documents.join('; ') : '', r.apply.where];
+  const u = new SpeechSynthesisUtterance(parts.filter(Boolean).join('. ')); u.lang = SPEECH[state.lang];
+  const v = speechSynthesis.getVoices().find(v => v.lang.replace('_','-').startsWith(state.lang)); if (v) u.voice = v;
+  speechSynthesis.speak(u);
+}
+
+/* ---------- PDF ---------- */
+async function downloadPdf(r){
+  collectDetails();
+  const t0 = performance.now();
+  const res = await fetch('/api/pdf', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({scheme_id:r.id, profile:state.profile, lang:state.lang})});
+  const blob = await res.blob(), url = URL.createObjectURL(blob), a = document.createElement('a');
+  a.href = url; a.download = `sarkari-sahayak-${r.id}-${state.lang}.pdf`; document.body.appendChild(a); a.click(); a.remove();
+  state.trace.push({tool:'generate_application_pdf', detail:`${r.id} (${state.lang})`, ms:Math.round(performance.now() - t0)}); renderTrace();
+}
+
+/* ---------- start ---------- */
+$('#go').onclick = ask;
+$('#text').onkeydown = e => { if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) ask(); };
+applyI18n(); call({}); requestAnimationFrame(draw);
+</script>
+</body>
+</html>

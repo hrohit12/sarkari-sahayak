@@ -1,0 +1,1197 @@
+{
+  "meta": {
+    "verified_on": "2026-09-19",
+    "disclaimer": {
+      "en": "Demo data compiled from public government pages on 19 Sep 2026. Rules and dates change - always confirm at the official portal or office before applying.",
+      "mr": "ही डेमो माहिती १९ सप्टेंबर २०२६ रोजी सार्वजनिक सरकारी संकेतस्थळांवरून घेतली आहे. नियम व तारखा बदलू शकतात - अर्ज करण्यापूर्वी अधिकृत पोर्टल/कार्यालयात खात्री करा.",
+      "hi": "यह डेमो डेटा 19 सितंबर 2026 को सार्वजनिक सरकारी पेजों से लिया गया है। नियम और तिथियाँ बदल सकती हैं - आवेदन से पहले आधिकारिक पोर्टल/कार्यालय पर पुष्टि करें।"
+    }
+  },
+  "fields": {
+    "gender": {
+      "type": "choice",
+      "q": {
+        "en": "What is your gender?",
+        "mr": "तुमचे लिंग काय आहे?",
+        "hi": "आपका लिंग क्या है?"
+      },
+      "options": [
+        {
+          "value": "female",
+          "label": {
+            "en": "Woman",
+            "mr": "महिला",
+            "hi": "महिला"
+          }
+        },
+        {
+          "value": "male",
+          "label": {
+            "en": "Man",
+            "mr": "पुरुष",
+            "hi": "पुरुष"
+          }
+        }
+      ]
+    },
+    "age": {
+      "type": "int",
+      "q": {
+        "en": "What is your age?",
+        "mr": "तुमचे वय किती आहे?",
+        "hi": "आपकी आयु क्या है?"
+      }
+    },
+    "family_income": {
+      "type": "int",
+      "q": {
+        "en": "Approximate annual family income (Rs)?",
+        "mr": "कुटुंबाचे अंदाजे वार्षिक उत्पन्न (₹) किती?",
+        "hi": "परिवार की अनुमानित वार्षिक आय (₹) कितनी है?"
+      }
+    },
+    "residency_years": {
+      "type": "int",
+      "q": {
+        "en": "How many years have you lived in Maharashtra?",
+        "mr": "तुम्ही महाराष्ट्रात किती वर्षे राहत आहात?",
+        "hi": "आप महाराष्ट्र में कितने वर्षों से रह रहे हैं?"
+      }
+    },
+    "bank_aadhaar_linked": {
+      "type": "bool",
+      "q": {
+        "en": "Do you have your own bank account linked with Aadhaar?",
+        "mr": "तुमचे स्वतःचे आधार-लिंक्ड बँक खाते आहे का?",
+        "hi": "क्या आपका अपना आधार-लिंक्ड बैंक खाता है?"
+      }
+    },
+    "ration_card": {
+      "type": "choice",
+      "q": {
+        "en": "Which ration card does your family have?",
+        "mr": "तुमच्या कुटुंबाकडे कोणती शिधापत्रिका आहे?",
+        "hi": "आपके परिवार के पास कौन सा राशन कार्ड है?"
+      },
+      "options": [
+        {
+          "value": "yellow",
+          "label": {
+            "en": "Yellow (BPL)",
+            "mr": "पिवळी (BPL)",
+            "hi": "पीला (BPL)"
+          }
+        },
+        {
+          "value": "orange",
+          "label": {
+            "en": "Orange",
+            "mr": "केशरी",
+            "hi": "केसरी"
+          }
+        },
+        {
+          "value": "white",
+          "label": {
+            "en": "White",
+            "mr": "पांढरी",
+            "hi": "सफेद"
+          }
+        },
+        {
+          "value": "aay",
+          "label": {
+            "en": "Antyodaya (AAY)",
+            "mr": "अंत्योदय (AAY)",
+            "hi": "अंत्योदय (AAY)"
+          }
+        },
+        {
+          "value": "none",
+          "label": {
+            "en": "None",
+            "mr": "नाही",
+            "hi": "नहीं है"
+          }
+        }
+      ]
+    },
+    "bpl": {
+      "type": "bool",
+      "q": {
+        "en": "Is your family on the BPL list?",
+        "mr": "तुमचे कुटुंब BPL यादीत आहे का?",
+        "hi": "क्या आपका परिवार BPL सूची में है?"
+      }
+    },
+    "land_owner": {
+      "type": "bool",
+      "q": {
+        "en": "Does your family own farmland (7/12 in your or a family member's name)?",
+        "mr": "तुमच्या कुटुंबाकडे शेतजमीन आहे का (७/१२ तुमच्या किंवा कुटुंबातील सदस्याच्या नावे)?",
+        "hi": "क्या आपके परिवार के पास खेती की जमीन है (7/12 आपके या परिवार के सदस्य के नाम)?"
+      }
+    },
+    "income_tax_payer": {
+      "type": "bool",
+      "q": {
+        "en": "Does anyone in the family pay income tax?",
+        "mr": "कुटुंबातील कोणी आयकर भरते का?",
+        "hi": "क्या परिवार में कोई आयकर भरता है?"
+      }
+    },
+    "govt_employee": {
+      "type": "bool",
+      "q": {
+        "en": "Is anyone in the family a serving or retired government employee?",
+        "mr": "कुटुंबातील कोणी सरकारी कर्मचारी किंवा निवृत्त कर्मचारी आहे का?",
+        "hi": "क्या परिवार में कोई सरकारी या सेवानिवृत्त कर्मचारी है?"
+      }
+    },
+    "pm_kisan_beneficiary": {
+      "type": "bool",
+      "q": {
+        "en": "Are you registered and receiving PM-KISAN instalments?",
+        "mr": "तुम्ही पीएम-किसान अंतर्गत नोंदणीकृत आहात आणि हप्ते मिळतात का?",
+        "hi": "क्या आप पीएम-किसान में पंजीकृत हैं और किस्तें मिलती हैं?"
+      }
+    },
+    "special_status": {
+      "type": "choice",
+      "q": {
+        "en": "Do any of these apply to you?",
+        "mr": "यापैकी काही तुम्हाला लागू होते का?",
+        "hi": "क्या इनमें से कुछ आप पर लागू होता है?"
+      },
+      "options": [
+        {
+          "value": "widow",
+          "label": {
+            "en": "Widow",
+            "mr": "विधवा",
+            "hi": "विधवा"
+          }
+        },
+        {
+          "value": "disabled",
+          "label": {
+            "en": "Person with disability",
+            "mr": "दिव्यांग",
+            "hi": "दिव्यांग"
+          }
+        },
+        {
+          "value": "orphan",
+          "label": {
+            "en": "Orphan",
+            "mr": "अनाथ",
+            "hi": "अनाथ"
+          }
+        },
+        {
+          "value": "destitute",
+          "label": {
+            "en": "Destitute / no support",
+            "mr": "निराधार",
+            "hi": "निराधार"
+          }
+        },
+        {
+          "value": "none",
+          "label": {
+            "en": "None of these",
+            "mr": "यापैकी नाही",
+            "hi": "इनमें से कोई नहीं"
+          }
+        }
+      ]
+    },
+    "gets_other_pension": {
+      "type": "bool",
+      "q": {
+        "en": "Do you already get a regular monthly government pension/benefit?",
+        "mr": "तुम्हाला आधीच दरमहा सरकारी पेन्शन/लाभ मिळतो का?",
+        "hi": "क्या आपको पहले से मासिक सरकारी पेंशन/लाभ मिलता है?"
+      }
+    },
+    "is_student": {
+      "type": "bool",
+      "q": {
+        "en": "Are you currently a college student (degree/diploma)?",
+        "mr": "तुम्ही सध्या महाविद्यालयात (पदवी/पदविका) शिकत आहात का?",
+        "hi": "क्या आप अभी कॉलेज (डिग्री/डिप्लोमा) में पढ़ रहे हैं?"
+      }
+    },
+    "admission_category": {
+      "type": "choice",
+      "q": {
+        "en": "Under which category was your admission taken?",
+        "mr": "तुमचा प्रवेश कोणत्या प्रवर्गातून झाला?",
+        "hi": "आपका प्रवेश किस श्रेणी से हुआ?"
+      },
+      "options": [
+        {
+          "value": "open",
+          "label": {
+            "en": "Open / General",
+            "mr": "खुला / सर्वसाधारण",
+            "hi": "खुला / सामान्य"
+          }
+        },
+        {
+          "value": "sebc",
+          "label": {
+            "en": "SEBC",
+            "mr": "SEBC",
+            "hi": "SEBC"
+          }
+        },
+        {
+          "value": "other",
+          "label": {
+            "en": "SC / ST / OBC / VJNT / other",
+            "mr": "SC / ST / OBC / VJNT / इतर",
+            "hi": "SC / ST / OBC / VJNT / अन्य"
+          }
+        }
+      ]
+    },
+    "gets_other_scholarship": {
+      "type": "bool",
+      "q": {
+        "en": "Are you already getting another scholarship?",
+        "mr": "तुम्हाला आधीच दुसरी शिष्यवृत्ती मिळते का?",
+        "hi": "क्या आपको पहले से कोई अन्य छात्रवृत्ति मिलती है?"
+      }
+    },
+    "has_lpg": {
+      "type": "bool",
+      "q": {
+        "en": "Does your household already have an LPG gas connection?",
+        "mr": "तुमच्या घरात आधीच गॅस (LPG) जोडणी आहे का?",
+        "hi": "क्या आपके घर में पहले से गैस (LPG) कनेक्शन है?"
+      }
+    }
+  },
+  "documents": {
+    "aadhaar": {
+      "en": "Aadhaar card of the applicant",
+      "mr": "अर्जदाराचे आधार कार्ड",
+      "hi": "आवेदक का आधार कार्ड"
+    },
+    "family_aadhaar": {
+      "en": "Aadhaar of all adult family members listed on the ration card",
+      "mr": "शिधापत्रिकेतील सर्व प्रौढ सदस्यांचे आधार कार्ड",
+      "hi": "राशन कार्ड में दर्ज सभी वयस्क सदस्यों का आधार"
+    },
+    "bank_passbook": {
+      "en": "Bank passbook (own account, Aadhaar-seeded / DBT-enabled) - first page",
+      "mr": "बँक पासबुक (स्वतःचे खाते, आधार-सीडेड / DBT सक्षम) - पहिले पान",
+      "hi": "बैंक पासबुक (अपना खाता, आधार-सीडेड / DBT सक्षम) - पहला पन्ना"
+    },
+    "photo": {
+      "en": "Recent passport-size photograph",
+      "mr": "अलीकडील पासपोर्ट आकाराचा फोटो",
+      "hi": "हाल का पासपोर्ट साइज़ फोटो"
+    },
+    "mobile": {
+      "en": "Mobile number linked with Aadhaar (for OTP)",
+      "mr": "आधारशी लिंक केलेला मोबाईल क्रमांक (OTP साठी)",
+      "hi": "आधार से जुड़ा मोबाइल नंबर (OTP के लिए)"
+    },
+    "income_cert": {
+      "en": "Income certificate (Tahsildar / competent authority)",
+      "mr": "उत्पन्नाचा दाखला (तहसीलदार / सक्षम प्राधिकारी)",
+      "hi": "आय प्रमाण पत्र (तहसीलदार / सक्षम अधिकारी)"
+    },
+    "domicile": {
+      "en": "Domicile / residence proof of Maharashtra",
+      "mr": "महाराष्ट्राचा अधिवास / रहिवासी दाखला",
+      "hi": "महाराष्ट्र का अधिवास / निवास प्रमाण"
+    },
+    "ration_card": {
+      "en": "Ration card",
+      "mr": "शिधापत्रिका",
+      "hi": "राशन कार्ड"
+    },
+    "marriage_cert": {
+      "en": "Marriage certificate (married women)",
+      "mr": "विवाह प्रमाणपत्र (विवाहित महिलांसाठी)",
+      "hi": "विवाह प्रमाण पत्र (विवाहित महिलाओं के लिए)"
+    },
+    "land_7_12": {
+      "en": "7/12 extract (land record) showing the name",
+      "mr": "नाव असलेला ७/१२ उतारा (जमीन अभिलेख)",
+      "hi": "नाम वाला 7/12 उतारा (भूमि रिकॉर्ड)"
+    },
+    "age_proof": {
+      "en": "Age proof (birth certificate / school leaving certificate / voter list / Aadhaar)",
+      "mr": "वयाचा पुरावा (जन्म दाखला / शाळा सोडल्याचा दाखला / मतदार यादी / आधार)",
+      "hi": "आयु प्रमाण (जन्म प्रमाण पत्र / स्कूल छोड़ने का प्रमाण पत्र / मतदाता सूची / आधार)"
+    },
+    "bpl_or_income_tahsildar": {
+      "en": "BPL proof or income certificate from Tahsildar / SDO",
+      "mr": "BPL पुरावा किंवा तहसीलदार / उपविभागीय अधिकाऱ्यांचा उत्पन्न दाखला",
+      "hi": "BPL प्रमाण या तहसीलदार / SDO का आय प्रमाण पत्र"
+    },
+    "residence_talathi": {
+      "en": "Residence certificate (Talathi / Gram Sevak) showing 15 years in Maharashtra",
+      "mr": "महाराष्ट्रात १५ वर्षे वास्तव्याचा दाखला (तलाठी / ग्रामसेवक)",
+      "hi": "महाराष्ट्र में 15 वर्ष निवास का प्रमाण (तलाठी / ग्राम सेवक)"
+    },
+    "not_looked_after": {
+      "en": "Self-declaration that children are not supporting you (Talathi may verify) - older guidance, confirm at office",
+      "mr": "मुले सांभाळत नसल्याचे स्वयंघोषणापत्र (तलाठी पडताळणी करू शकतात) - जुनी सूचना, कार्यालयात खात्री करा",
+      "hi": "बच्चे देखभाल नहीं करते इसका स्व-घोषणा पत्र (तलाठी सत्यापन कर सकते हैं) - पुरानी सूचना, कार्यालय में पुष्टि करें"
+    },
+    "disability_cert": {
+      "en": "Disability certificate (if disabled)",
+      "mr": "दिव्यांगत्व प्रमाणपत्र (दिव्यांग असल्यास)",
+      "hi": "दिव्यांगता प्रमाण पत्र (दिव्यांग होने पर)"
+    },
+    "spouse_death_cert": {
+      "en": "Death certificate of spouse (widows)",
+      "mr": "पतीचे मृत्यू प्रमाणपत्र (विधवांसाठी)",
+      "hi": "पति का मृत्यु प्रमाण पत्र (विधवाओं के लिए)"
+    },
+    "orphan_cert": {
+      "en": "Orphan certificate (if orphan)",
+      "mr": "अनाथ प्रमाणपत्र (अनाथ असल्यास)",
+      "hi": "अनाथ प्रमाण पत्र (अनाथ होने पर)"
+    },
+    "edu_marksheets": {
+      "en": "10th mark sheet onwards and previous-year mark sheet",
+      "mr": "१० वी पासून पुढील गुणपत्रके व मागील वर्षाचे गुणपत्रक",
+      "hi": "10वीं से आगे की मार्कशीट और पिछले वर्ष की मार्कशीट"
+    },
+    "cap_admission": {
+      "en": "Admission proof (CAP allotment / fee receipt) and bonafide certificate",
+      "mr": "प्रवेशाचा पुरावा (CAP वाटप / फी पावती) व बोनाफाईड प्रमाणपत्र",
+      "hi": "प्रवेश प्रमाण (CAP आवंटन / फीस रसीद) और बोनाफाइड प्रमाण पत्र"
+    },
+    "scholarship_undertaking": {
+      "en": "Undertaking: no other scholarship, and max 2 children of the family benefiting",
+      "mr": "हमीपत्र: इतर शिष्यवृत्ती नाही व कुटुंबातील कमाल २ अपत्यांना लाभ",
+      "hi": "घोषणा पत्र: कोई अन्य छात्रवृत्ति नहीं और परिवार के अधिकतम 2 बच्चों को लाभ"
+    },
+    "kyc_form": {
+      "en": "Ujjwala KYC application form (signed, with photo)",
+      "mr": "उज्ज्वला KYC अर्ज (सही व फोटोसह)",
+      "hi": "उज्ज्वला KYC आवेदन फॉर्म (हस्ताक्षर व फोटो सहित)"
+    },
+    "declaration_14pt": {
+      "en": "14-point deprivation declaration (if not on SECC / listed categories)",
+      "mr": "१४ मुद्द्यांचे वंचितता घोषणापत्र (SECC / नमूद प्रवर्गात नसल्यास)",
+      "hi": "14-बिंदु वंचितता घोषणा (SECC / सूचीबद्ध श्रेणी में न होने पर)"
+    },
+    "arogya_id": {
+      "en": "Photo ID (Aadhaar / Voter ID / PAN etc.) and Ayushman card if issued",
+      "mr": "फोटो ओळखपत्र (आधार / मतदार ओळखपत्र / पॅन इ.) व असल्यास आयुष्मान कार्ड",
+      "hi": "फोटो पहचान पत्र (आधार / वोटर ID / पैन आदि) और आयुष्मान कार्ड यदि बना हो"
+    }
+  },
+  "schemes": [
+    {
+      "id": "ladki_bahin",
+      "level": "State",
+      "short": {
+        "en": "Ladki Bahin",
+        "mr": "लाडकी बहीण",
+        "hi": "लाडकी बहीण"
+      },
+      "name": {
+        "en": "Mukhyamantri Majhi Ladki Bahin Yojana",
+        "mr": "मुख्यमंत्री माझी लाडकी बहीण योजना",
+        "hi": "मुख्यमंत्री माझी लाडकी बहीण योजना"
+      },
+      "benefit": {
+        "en": "Rs 1,500 per month by DBT into the woman's Aadhaar-linked bank account.",
+        "mr": "दरमहा ₹१,५०० थेट (DBT) महिलेच्या आधार-लिंक्ड बँक खात्यात.",
+        "hi": "हर महीने ₹1,500 सीधे (DBT) महिला के आधार-लिंक्ड बैंक खाते में।"
+      },
+      "apply_status": "closed",
+      "status_note": {
+        "en": "New applications are closed (first window ended 15 Oct 2024). Existing beneficiaries: complete eKYC / fix issues on ladakibahin.maharashtra.gov.in, the Nari Shakti Doot app, or your WCD office (helpline 181).",
+        "mr": "नवीन अर्ज बंद आहेत (पहिली मुदत १५ ऑक्टोबर २०२४ रोजी संपली). सध्याचे लाभार्थी: ladakibahin.maharashtra.gov.in, नारी शक्ती दूत अॅप किंवा महिला व बालविकास कार्यालयातून eKYC/दुरुस्ती करा (हेल्पलाइन १८१).",
+        "hi": "नए आवेदन बंद हैं (पहली अवधि 15 अक्टूबर 2024 को खत्म हुई)। मौजूदा लाभार्थी: ladakibahin.maharashtra.gov.in, नारी शक्ति दूत ऐप या महिला व बाल विकास कार्यालय से eKYC/सुधार करें (हेल्पलाइन 181)।"
+      },
+      "rules": [
+        {
+          "f": "gender",
+          "op": "eq",
+          "v": "female",
+          "label": {
+            "en": "Woman",
+            "mr": "महिला",
+            "hi": "महिला"
+          }
+        },
+        {
+          "f": "resident_mh",
+          "op": "eq",
+          "v": true,
+          "label": {
+            "en": "Resident of Maharashtra",
+            "mr": "महाराष्ट्राची रहिवासी",
+            "hi": "महाराष्ट्र की निवासी"
+          }
+        },
+        {
+          "f": "age",
+          "op": "between",
+          "v": [
+            21,
+            65
+          ],
+          "label": {
+            "en": "Age 21 to 65 years",
+            "mr": "वय २१ ते ६५ वर्षे",
+            "hi": "आयु 21 से 65 वर्ष"
+          }
+        },
+        {
+          "f": "family_income",
+          "op": "lte",
+          "v": 250000,
+          "label": {
+            "en": "Family income up to Rs 2.5 lakh per year",
+            "mr": "कुटुंबाचे वार्षिक उत्पन्न ₹२.५ लाखांपर्यंत",
+            "hi": "पारिवारिक वार्षिक आय ₹2.5 लाख तक"
+          }
+        },
+        {
+          "f": "bank_aadhaar_linked",
+          "op": "eq",
+          "v": true,
+          "label": {
+            "en": "Own Aadhaar-linked bank account",
+            "mr": "स्वतःचे आधार-लिंक्ड बँक खाते",
+            "hi": "अपना आधार-लिंक्ड बैंक खाता"
+          }
+        }
+      ],
+      "docs": [
+        "aadhaar",
+        "domicile",
+        "income_cert",
+        "ration_card",
+        "bank_passbook",
+        "photo",
+        "mobile",
+        "marriage_cert"
+      ],
+      "apply": {
+        "mode": "portal",
+        "where": {
+          "en": "Women and Child Development Dept - portal / Anganwadi / Setu Suvidha Kendra",
+          "mr": "महिला व बालविकास विभाग - पोर्टल / अंगणवाडी / सेतू सुविधा केंद्र",
+          "hi": "महिला व बाल विकास विभाग - पोर्टल / आंगनवाड़ी / सेतु सुविधा केंद्र"
+        },
+        "url": "https://ladakibahin.maharashtra.gov.in"
+      },
+      "caveat": {
+        "en": "Sources disagree on the upper age (65 on the district page, 60 on some sites) - 65 used. Income certificate may not be compulsory with a yellow/orange ration card. Other exclusions can apply.",
+        "mr": "वयोमर्यादेबाबत स्रोतांत फरक (जिल्हा पानावर ६५, काही साइट्सवर ६०) - येथे ६५ वापरले आहे. पिवळ्या/केशरी शिधापत्रिकेसह उत्पन्न दाखला बंधनकारक नसू शकतो. इतर अपात्रता लागू असू शकतात.",
+        "hi": "ऊपरी आयु पर स्रोतों में अंतर (जिला पेज पर 65, कुछ साइट्स पर 60) - यहाँ 65 लिया है। पीले/केसरी राशन कार्ड के साथ आय प्रमाण पत्र अनिवार्य नहीं हो सकता। अन्य अपात्रताएँ लागू हो सकती हैं।"
+      },
+      "sources": [
+        "https://pune.gov.in/en/scheme/mukhyamantri-majhi-ladki-bahin-yojana/",
+        "https://majhiladkibahinyojana.org/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "pm_kisan",
+      "level": "Central",
+      "short": {
+        "en": "PM-KISAN",
+        "mr": "पीएम-किसान",
+        "hi": "पीएम-किसान"
+      },
+      "name": {
+        "en": "PM Kisan Samman Nidhi (PM-KISAN)",
+        "mr": "पीएम किसान सन्मान निधी (पीएम-किसान)",
+        "hi": "पीएम किसान सम्मान निधि (पीएम-किसान)"
+      },
+      "benefit": {
+        "en": "Rs 6,000 per year in three instalments of Rs 2,000, by DBT to an Aadhaar-seeded bank account.",
+        "mr": "वार्षिक ₹६,००० - प्रत्येकी ₹२,००० चे तीन हप्ते, आधार-सीडेड बँक खात्यात DBT द्वारे.",
+        "hi": "सालाना ₹6,000 - ₹2,000 की तीन किस्तें, आधार-सीडेड बैंक खाते में DBT से।"
+      },
+      "apply_status": "open",
+      "status_note": {
+        "en": "No fixed deadline. eKYC (OTP or biometric at a CSC) is mandatory for instalments.",
+        "mr": "निश्चित अंतिम तारीख नाही. हप्त्यांसाठी eKYC (OTP किंवा CSC वर बायोमेट्रिक) अनिवार्य.",
+        "hi": "कोई निश्चित अंतिम तिथि नहीं। किस्तों के लिए eKYC (OTP या CSC पर बायोमेट्रिक) अनिवार्य।"
+      },
+      "rules": [
+        {
+          "f": "land_owner",
+          "op": "eq",
+          "v": true,
+          "label": {
+            "en": "Family owns cultivable land per land records",
+            "mr": "जमीन अभिलेखानुसार कुटुंबाकडे शेतजमीन",
+            "hi": "भूमि रिकॉर्ड के अनुसार परिवार के पास खेती की जमीन"
+          }
+        },
+        {
+          "f": "income_tax_payer",
+          "op": "eq",
+          "v": false,
+          "label": {
+            "en": "No income-tax payer in the family",
+            "mr": "कुटुंबात आयकरदाता नाही",
+            "hi": "परिवार में कोई आयकरदाता नहीं"
+          }
+        },
+        {
+          "f": "govt_employee",
+          "op": "eq",
+          "v": false,
+          "label": {
+            "en": "No serving/retired government employee in the family",
+            "mr": "कुटुंबात सरकारी/निवृत्त कर्मचारी नाही",
+            "hi": "परिवार में कोई सरकारी/सेवानिवृत्त कर्मचारी नहीं"
+          }
+        },
+        {
+          "f": "bank_aadhaar_linked",
+          "op": "eq",
+          "v": true,
+          "label": {
+            "en": "Aadhaar-linked bank account",
+            "mr": "आधार-लिंक्ड बँक खाते",
+            "hi": "आधार-लिंक्ड बैंक खाता"
+          }
+        }
+      ],
+      "docs": [
+        "aadhaar",
+        "land_7_12",
+        "bank_passbook",
+        "mobile",
+        "photo"
+      ],
+      "apply": {
+        "mode": "portal",
+        "where": {
+          "en": "PM-KISAN portal / nearest CSC / local agriculture or revenue office",
+          "mr": "पीएम-किसान पोर्टल / जवळचे CSC / स्थानिक कृषी किंवा महसूल कार्यालय",
+          "hi": "पीएम-किसान पोर्टल / नज़दीकी CSC / स्थानीय कृषि या राजस्व कार्यालय"
+        },
+        "url": "https://pmkisan.gov.in"
+      },
+      "caveat": {
+        "en": "Family unit = husband, wife and minor children; one exclusion can disqualify the family. Tenant farmers are not covered. Some low-grade government staff are exempt from the government-employee exclusion - check the guidelines.",
+        "mr": "कुटुंब = पती, पत्नी व अज्ञान मुले; एखादी अपात्रता आल्यास संपूर्ण कुटुंब अपात्र. कुळ/भाडेकरू शेतकरी पात्र नाहीत. काही खालच्या श्रेणीतील सरकारी कर्मचाऱ्यांना सूट आहे - मार्गदर्शक सूचना तपासा.",
+        "hi": "परिवार = पति, पत्नी और नाबालिग बच्चे; एक अपात्रता से पूरा परिवार अपात्र। किरायेदार किसान पात्र नहीं। कुछ निचली श्रेणी के सरकारी कर्मचारियों को छूट है - दिशानिर्देश देखें।"
+      },
+      "sources": [
+        "https://pmkisan.gov.in",
+        "https://www.thecurrentindia.com/govt/pm-kisan-samman-nidhi/",
+        "https://www.airtel.in/blog/personal-loan/pm-kisan-samman-nidhi/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "namo_shetkari",
+      "level": "State",
+      "short": {
+        "en": "Namo Shetkari",
+        "mr": "नमो शेतकरी",
+        "hi": "नमो शेतकरी"
+      },
+      "name": {
+        "en": "Namo Shetkari Mahasanman Nidhi Yojana",
+        "mr": "नमो शेतकरी महासन्मान निधी योजना",
+        "hi": "नमो शेतकरी महासम्मान निधि योजना"
+      },
+      "benefit": {
+        "en": "Extra Rs 6,000 per year (3 x Rs 2,000) on top of PM-KISAN - Rs 12,000 in total.",
+        "mr": "पीएम-किसान व्यतिरिक्त वार्षिक ₹६,००० (३ x ₹२,०००) - एकूण ₹१२,०००.",
+        "hi": "पीएम-किसान के अतिरिक्त सालाना ₹6,000 (3 x ₹2,000) - कुल ₹12,000।"
+      },
+      "apply_status": "automatic",
+      "status_note": {
+        "en": "Farmers registered under PM-KISAN are included automatically - keep PM-KISAN eKYC and Aadhaar-seeded bank account up to date. Check status at nsmny.mahait.org.",
+        "mr": "पीएम-किसान अंतर्गत नोंदणीकृत शेतकऱ्यांना आपोआप लाभ - पीएम-किसान eKYC व आधार-सीडेड बँक खाते अद्ययावत ठेवा. स्थिती nsmny.mahait.org वर तपासा.",
+        "hi": "पीएम-किसान में पंजीकृत किसान अपने-आप शामिल - पीएम-किसान eKYC और आधार-सीडेड बैंक खाता अपडेट रखें। स्थिति nsmny.mahait.org पर देखें।"
+      },
+      "rules": [
+        {
+          "f": "resident_mh",
+          "op": "eq",
+          "v": true,
+          "label": {
+            "en": "Farmer resident of Maharashtra",
+            "mr": "महाराष्ट्रातील शेतकरी",
+            "hi": "महाराष्ट्र का किसान"
+          }
+        },
+        {
+          "f": "pm_kisan_beneficiary",
+          "op": "eq",
+          "v": true,
+          "label": {
+            "en": "Registered and receiving PM-KISAN",
+            "mr": "पीएम-किसान अंतर्गत नोंदणीकृत व लाभार्थी",
+            "hi": "पीएम-किसान में पंजीकृत और लाभार्थी"
+          }
+        },
+        {
+          "f": "bank_aadhaar_linked",
+          "op": "eq",
+          "v": true,
+          "label": {
+            "en": "Aadhaar-linked bank account (DBT)",
+            "mr": "आधार-लिंक्ड बँक खाते (DBT)",
+            "hi": "आधार-लिंक्ड बैंक खाता (DBT)"
+          }
+        }
+      ],
+      "docs": [
+        "aadhaar",
+        "land_7_12",
+        "bank_passbook",
+        "mobile"
+      ],
+      "apply": {
+        "mode": "automatic",
+        "where": {
+          "en": "Automatic for PM-KISAN beneficiaries - District Agriculture Officer for help",
+          "mr": "पीएम-किसान लाभार्थ्यांना आपोआप - मदतीसाठी जिल्हा कृषी अधिकारी",
+          "hi": "पीएम-किसान लाभार्थियों को स्वतः - सहायता हेतु जिला कृषि अधिकारी"
+        },
+        "url": "https://nsmny.mahait.org"
+      },
+      "caveat": {
+        "en": "State scheme mirrors PM-KISAN eligibility rules; instalment timing is set by the state.",
+        "mr": "राज्य योजना पीएम-किसानचे निकष अनुसरते; हप्त्यांची वेळ राज्य ठरवते.",
+        "hi": "राज्य योजना पीएम-किसान के मानदंड अपनाती है; किस्तों का समय राज्य तय करता है।"
+      },
+      "sources": [
+        "https://en.vikaspedia.in/viewcontent/schemesall/state-specific-schemes/welfare-schemes-of-maharashtra/namo-shetkari-maha-samman-nidhi-yojana?lgn=en",
+        "https://devendrafadnavisachievements.com/namo-shetkari-samman-nidhi-yojana-maharashtra-doubling-the-income-support-to-farmers-in-the-state/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "shravan_bal",
+      "level": "State",
+      "short": {
+        "en": "Shravan Bal",
+        "mr": "श्रावणबाळ",
+        "hi": "श्रवण बाल"
+      },
+      "name": {
+        "en": "Shravan Bal Seva Rajya Nivruttivetan Yojana",
+        "mr": "श्रावणबाळ सेवा राज्य निवृत्तिवेतन योजना",
+        "hi": "श्रवण बाल सेवा राज्य निवृत्ति वेतन योजना"
+      },
+      "benefit": {
+        "en": "Rs 1,500 per month pension for destitute elderly (65+).",
+        "mr": "६५ वर्षे व त्यावरील निराधार वृद्धांना दरमहा ₹१,५०० निवृत्तिवेतन.",
+        "hi": "65+ निराधार बुजुर्गों को हर महीने ₹1,500 पेंशन।"
+      },
+      "apply_status": "open",
+      "status_note": {
+        "en": "Offline application at the Tahsildar / Talathi / Collector office (Sanjay Gandhi Yojana branch); portal: sas.mahait.org.",
+        "mr": "तहसीलदार / तलाठी / जिल्हाधिकारी कार्यालयात (संजय गांधी योजना शाखा) प्रत्यक्ष अर्ज; पोर्टल: sas.mahait.org.",
+        "hi": "तहसीलदार / तलाठी / कलेक्टर कार्यालय (संजय गांधी योजना शाखा) में ऑफलाइन आवेदन; पोर्टल: sas.mahait.org।"
+      },
+      "rules": [
+        {
+          "f": "resident_mh",
+          "op": "eq",
+          "v": true,
+          "label": {
+            "en": "Resident of Maharashtra",
+            "mr": "महाराष्ट्राचा रहिवासी",
+            "hi": "महाराष्ट्र का निवासी"
+          }
+        },
+        {
+          "f": "residency_years",
+          "op": "gte",
+          "v": 15,
+          "label": {
+            "en": "Lived in Maharashtra at least 15 years",
+            "mr": "महाराष्ट्रात किमान १५ वर्षे वास्तव्य",
+            "hi": "महाराष्ट्र में कम से कम 15 वर्ष निवास"
+          }
+        },
+        {
+          "f": "age",
+          "op": "gte",
+          "v": 65,
+          "label": {
+            "en": "Age 65 or above",
+            "mr": "वय ६५ वर्षे किंवा जास्त",
+            "hi": "आयु 65 वर्ष या अधिक"
+          }
+        },
+        {
+          "op": "or",
+          "of": [
+            {
+              "f": "family_income",
+              "op": "lte",
+              "v": 20999
+            },
+            {
+              "f": "bpl",
+              "op": "eq",
+              "v": true
+            }
+          ],
+          "label": {
+            "en": "On BPL list OR family income below Rs 21,000 per year",
+            "mr": "BPL यादीत किंवा कुटुंबाचे वार्षिक उत्पन्न ₹२१,००० पेक्षा कमी",
+            "hi": "BPL सूची में या पारिवारिक वार्षिक आय ₹21,000 से कम"
+          }
+        },
+        {
+          "f": "gets_other_pension",
+          "op": "eq",
+          "v": false,
+          "label": {
+            "en": "Not already getting a regular monthly government benefit",
+            "mr": "आधीच दरमहा सरकारी लाभ मिळत नाही",
+            "hi": "पहले से मासिक सरकारी लाभ नहीं मिल रहा"
+          }
+        }
+      ],
+      "docs": [
+        "age_proof",
+        "bpl_or_income_tahsildar",
+        "residence_talathi",
+        "aadhaar",
+        "bank_passbook",
+        "photo",
+        "not_looked_after"
+      ],
+      "apply": {
+        "mode": "offline",
+        "where": {
+          "en": "The Tahsildar, Sanjay Gandhi Yojana Branch (via Talathi / Collector office)",
+          "mr": "तहसीलदार, संजय गांधी योजना शाखा (तलाठी / जिल्हाधिकारी कार्यालयामार्फत)",
+          "hi": "तहसीलदार, संजय गांधी योजना शाखा (तलाठी / कलेक्टर कार्यालय के माध्यम से)"
+        },
+        "url": "https://sjsa.maharashtra.gov.in/en/scheme/shravan-bal-rajya-nivruttivetan-yojana/"
+      },
+      "caveat": {
+        "en": "Income limit is Rs 21,000 per year (a very low, long-standing limit). Confirm current document list with the Tahsil office.",
+        "mr": "उत्पन्न मर्यादा वार्षिक ₹२१,००० आहे (अतिशय कमी, जुनी मर्यादा). सध्याची कागदपत्र यादी तहसील कार्यालयात तपासा.",
+        "hi": "आय सीमा सालाना ₹21,000 है (बहुत कम, पुरानी सीमा)। मौजूदा दस्तावेज़ सूची तहसील कार्यालय में जाँचें।"
+      },
+      "sources": [
+        "https://sjsa.maharashtra.gov.in/en/scheme/shravan-bal-rajya-nivruttivetan-yojana/",
+        "https://nashik.gov.in/en/scheme/shravan-bal-seva-rajya-nivruttivetan-yojana/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sanjay_gandhi",
+      "level": "State",
+      "short": {
+        "en": "Sanjay Gandhi",
+        "mr": "संजय गांधी",
+        "hi": "संजय गांधी"
+      },
+      "name": {
+        "en": "Sanjay Gandhi Niradhar Anudan Yojana",
+        "mr": "संजय गांधी निराधार अनुदान योजना",
+        "hi": "संजय गांधी निराधार अनुदान योजना"
+      },
+      "benefit": {
+        "en": "Rs 1,500 per month for destitute persons, widows, orphans, persons with disability and other vulnerable people under 65.",
+        "mr": "६५ वर्षांखालील निराधार, विधवा, अनाथ, दिव्यांग व इतर दुर्बल व्यक्तींना दरमहा ₹१,५००.",
+        "hi": "65 से कम उम्र के निराधार, विधवा, अनाथ, दिव्यांग और अन्य कमजोर व्यक्तियों को हर महीने ₹1,500।"
+      },
+      "apply_status": "open",
+      "status_note": {
+        "en": "Apply at the Tahsil / Talathi / Collector office; track at sas.mahait.org. If you are 65+, apply for Shravan Bal instead.",
+        "mr": "तहसील / तलाठी / जिल्हाधिकारी कार्यालयात अर्ज करा; sas.mahait.org वर स्थिती पहा. ६५+ असल्यास श्रावणबाळ योजनेसाठी अर्ज करा.",
+        "hi": "तहसील / तलाठी / कलेक्टर कार्यालय में आवेदन करें; sas.mahait.org पर स्थिति देखें। 65+ हों तो श्रवण बाल योजना में आवेदन करें।"
+      },
+      "rules": [
+        {
+          "f": "resident_mh",
+          "op": "eq",
+          "v": true,
+          "label": {
+            "en": "Resident of Maharashtra",
+            "mr": "महाराष्ट्राचा रहिवासी",
+            "hi": "महाराष्ट्र का निवासी"
+          }
+        },
+        {
+          "f": "residency_years",
+          "op": "gte",
+          "v": 15,
+          "label": {
+            "en": "Lived in Maharashtra at least 15 years",
+            "mr": "महाराष्ट्रात किमान १५ वर्षे वास्तव्य",
+            "hi": "महाराष्ट्र में कम से कम 15 वर्ष निवास"
+          }
+        },
+        {
+          "f": "age",
+          "op": "between",
+          "v": [
+            18,
+            64
+          ],
+          "label": {
+            "en": "Age 18 to 64",
+            "mr": "वय १८ ते ६४ वर्षे",
+            "hi": "आयु 18 से 64 वर्ष"
+          }
+        },
+        {
+          "f": "special_status",
+          "op": "in",
+          "v": [
+            "widow",
+            "disabled",
+            "orphan",
+            "destitute"
+          ],
+          "label": {
+            "en": "Widow / disabled / orphan / destitute",
+            "mr": "विधवा / दिव्यांग / अनाथ / निराधार",
+            "hi": "विधवा / दिव्यांग / अनाथ / निराधार"
+          }
+        },
+        {
+          "f": "family_income",
+          "op": "lte",
+          "v": 21000,
+          "soft": true,
+          "label": {
+            "en": "Family income up to Rs 21,000 per year",
+            "mr": "कुटुंबाचे वार्षिक उत्पन्न ₹२१,००० पर्यंत",
+            "hi": "पारिवारिक वार्षिक आय ₹21,000 तक"
+          }
+        }
+      ],
+      "docs": [
+        "aadhaar",
+        "age_proof",
+        "residence_talathi",
+        "bpl_or_income_tahsildar",
+        "bank_passbook",
+        "photo",
+        "disability_cert",
+        "spouse_death_cert",
+        "orphan_cert"
+      ],
+      "apply": {
+        "mode": "offline",
+        "where": {
+          "en": "The Tahsildar, Sanjay Gandhi Niradhar Yojana Branch",
+          "mr": "तहसीलदार, संजय गांधी निराधार योजना शाखा",
+          "hi": "तहसीलदार, संजय गांधी निराधार योजना शाखा"
+        },
+        "url": "https://amravati.gov.in/en/scheme/sanjay-gandhi-niradhar-yojana/"
+      },
+      "caveat": {
+        "en": "For disabled applicants some guidance allows a higher income limit (about Rs 50,000) - so the income rule is treated as 'check with office' rather than a hard no. Bring only the certificates that apply to you.",
+        "mr": "दिव्यांगांसाठी काही सूचनांनुसार उत्पन्न मर्यादा जास्त (सुमारे ₹५०,०००) - म्हणून उत्पन्नाचा निकष 'कार्यालयात खात्री करा' असा धरला आहे. फक्त तुम्हाला लागू प्रमाणपत्रे आणा.",
+        "hi": "दिव्यांगों के लिए कुछ निर्देशों में आय सीमा अधिक (लगभग ₹50,000) है - इसलिए आय शर्त को 'कार्यालय में पुष्टि करें' माना गया है। केवल लागू प्रमाण पत्र लाएँ।"
+      },
+      "sources": [
+        "https://amravati.gov.in/en/scheme/sanjay-gandhi-niradhar-yojana/",
+        "https://mumbaisuburban.gov.in/en/sanjay-gandhi-yojana/",
+        "https://dhule.gov.in/en/sanjay-gandhi-yojana-branch/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "mjpjay",
+      "level": "State + Central",
+      "short": {
+        "en": "Jan Arogya",
+        "mr": "जन आरोग्य",
+        "hi": "जन आरोग्य"
+      },
+      "name": {
+        "en": "Mahatma Jyotirao Phule Jan Arogya Yojana (with Ayushman Bharat)",
+        "mr": "महात्मा ज्योतिराव फुले जन आरोग्य योजना (आयुष्मान भारतसह)",
+        "hi": "महात्मा ज्योतिराव फुले जन आरोग्य योजना (आयुष्मान भारत सहित)"
+      },
+      "benefit": {
+        "en": "Cashless treatment up to Rs 5 lakh per family per year (floater) at empanelled hospitals.",
+        "mr": "नोंदणीकृत रुग्णालयांत कुटुंबासाठी वार्षिक ₹५ लाखांपर्यंत कॅशलेस उपचार (फ्लोटर).",
+        "hi": "सूचीबद्ध अस्पतालों में परिवार को सालाना ₹5 लाख तक कैशलेस इलाज (फ्लोटर)।"
+      },
+      "apply_status": "open",
+      "status_note": {
+        "en": "No separate form for most families - show your ration card/ID to the Arogya Mitra at an empanelled hospital. Helpline 155388 / 1800-233-2200.",
+        "mr": "बहुतेक कुटुंबांना वेगळा अर्ज नाही - नोंदणीकृत रुग्णालयातील आरोग्य मित्राला शिधापत्रिका/ओळखपत्र दाखवा. हेल्पलाइन १५५३८८ / १८००-२३३-२२००.",
+        "hi": "अधिकतर परिवारों के लिए अलग फॉर्म नहीं - सूचीबद्ध अस्पताल के आरोग्य मित्र को राशन कार्ड/पहचान पत्र दिखाएँ। हेल्पलाइन 155388 / 1800-233-2200।"
+      },
+      "rules": [
+        {
+          "f": "resident_mh",
+          "op": "eq",
+          "v": true,
+          "label": {
+            "en": "Resident of Maharashtra",
+            "mr": "महाराष्ट्राचा रहिवासी",
+            "hi": "महाराष्ट्र का निवासी"
+          }
+        },
+        {
+          "f": "ration_card",
+          "op": "in",
+          "v": [
+            "yellow",
+            "orange",
+            "aay"
+          ],
+          "soft": true,
+          "label": {
+            "en": "Yellow / orange / Antyodaya ration card (Category A)",
+            "mr": "पिवळी / केशरी / अंत्योदय शिधापत्रिका (वर्ग A)",
+            "hi": "पीला / केसरी / अंत्योदय राशन कार्ड (श्रेणी A)"
+          }
+        }
+      ],
+      "docs": [
+        "ration_card",
+        "arogya_id",
+        "aadhaar",
+        "domicile",
+        "land_7_12"
+      ],
+      "apply": {
+        "mode": "hospital",
+        "where": {
+          "en": "Arogya Mitra desk at any empanelled hospital",
+          "mr": "कोणत्याही नोंदणीकृत रुग्णालयातील आरोग्य मित्र कक्ष",
+          "hi": "किसी भी सूचीबद्ध अस्पताल का आरोग्य मित्र डेस्क"
+        },
+        "url": "https://www.jeevandayee.gov.in"
+      },
+      "caveat": {
+        "en": "White-card families, and farmers of notified distressed districts, are covered under other categories (farmers: white card + 7/12; no card: domicile certificate). Sources differ on how universal cover now is - confirm with the hospital's Arogya Mitra.",
+        "mr": "पांढरी शिधापत्रिका असलेली कुटुंबे व अधिसूचित जिल्ह्यांतील शेतकरी इतर वर्गात येतात (शेतकरी: पांढरी शिधापत्रिका + ७/१२; शिधापत्रिका नसल्यास: अधिवास दाखला). सध्याच्या व्याप्तीबाबत स्रोतांत फरक - रुग्णालयातील आरोग्य मित्राकडे खात्री करा.",
+        "hi": "सफेद कार्ड वाले परिवार और अधिसूचित जिलों के किसान अन्य श्रेणियों में आते हैं (किसान: सफेद कार्ड + 7/12; कार्ड न हो तो अधिवास प्रमाण)। वर्तमान कवरेज पर स्रोतों में अंतर - अस्पताल के आरोग्य मित्र से पुष्टि करें।"
+      },
+      "sources": [
+        "https://www.bajajgeneralinsurance.com/blog/health-insurance-articles/mahatma-jyotiba-phule-jan-arogya-yojana.html",
+        "https://pddb.in/schemes/mjpjay/",
+        "https://www.citizennest.com/guide/mh-mahatma-jyotirao-phule-jan-arogya"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "rajarshi_shahu",
+      "level": "State",
+      "short": {
+        "en": "Shahu Scholarship",
+        "mr": "शाहू शिष्यवृत्ती",
+        "hi": "शाहू छात्रवृत्ति"
+      },
+      "name": {
+        "en": "Rajarshi Chhatrapati Shahu Maharaj Shikshan Shulk Shishyavrutti Yojana (EBC)",
+        "mr": "राजर्षी छत्रपती शाहू महाराज शिक्षण शुल्क शिष्यवृत्ती योजना (EBC)",
+        "hi": "राजर्षि छत्रपति शाहू महाराज शिक्षण शुल्क छात्रवृत्ति योजना (EBC)"
+      },
+      "benefit": {
+        "en": "Reimbursement of 50%-100% of tuition and exam fees (depends on course and institution type), paid by DBT via MahaDBT.",
+        "mr": "शिक्षण व परीक्षा शुल्काची ५०%-१००% परतफेड (अभ्यासक्रम व संस्थेच्या प्रकारानुसार), MahaDBT मार्फत DBT द्वारे.",
+        "hi": "शिक्षण और परीक्षा शुल्क की 50%-100% प्रतिपूर्ति (पाठ्यक्रम व संस्था के प्रकार पर निर्भर), MahaDBT से DBT द्वारा।"
+      },
+      "apply_status": "open",
+      "status_note": {
+        "en": "2026-27: fresh registration opened 1 June 2026; renewals reportedly till 30 Sep 2026 - check MahaDBT for the current window.",
+        "mr": "२०२६-२७: नवीन नोंदणी १ जून २०२६ ला सुरू झाली; नूतनीकरण ३० सप्टेंबर २०२६ पर्यंत असल्याचे समजते - सध्याची मुदत MahaDBT वर तपासा.",
+        "hi": "2026-27: नया पंजीकरण 1 जून 2026 से शुरू; नवीनीकरण 30 सितंबर 2026 तक बताया गया है - वर्तमान अवधि MahaDBT पर देखें।"
+      },
+      "rules": [
+        {
+          "f": "is_student",
+          "op": "eq",
+          "v": true,
+          "label": {
+            "en": "Student in a degree/diploma course",
+            "mr": "पदवी/पदविका अभ्यासक्रमाचा विद्यार्थी",
+            "hi": "डिग्री/डिप्लोमा पाठ्यक्रम का छात्र"
+          }
+        },
+        {
+          "f": "resident_mh",
+          "op": "eq",
+          "v": true,
+          "label": {
+            "en": "Maharashtra domicile",
+            "mr": "महाराष्ट्राचा अधिवास",
+            "hi": "महाराष्ट्र का अधिवास"
+          }
+        },
+        {
+          "f": "family_income",
+          "op": "lte",
+          "v": 800000,
+          "label": {
+            "en": "Family income up to Rs 8 lakh per year",
+            "mr": "कुटुंबाचे वार्षिक उत्पन्न ₹८ लाखांपर्यंत",
+            "hi": "पारिवारिक वार्षिक आय ₹8 लाख तक"
+          }
+        },
+        {
+          "f": "admission_category",
+          "op": "in",
+          "v": [
+            "open",
+            "sebc"
+          ],
+          "label": {
+            "en": "Admitted under Open/General or SEBC category",
+            "mr": "खुला/सर्वसाधारण किंवा SEBC प्रवर्गातून प्रवेश",
+            "hi": "खुला/सामान्य या SEBC श्रेणी से प्रवेश"
+          }
+        },
+        {
+          "f": "gets_other_scholarship",
+          "op": "eq",
+          "v": false,
+          "label": {
+            "en": "Not getting another scholarship",
+            "mr": "इतर शिष्यवृत्ती मिळत नाही",
+            "hi": "अन्य छात्रवृत्ति नहीं मिल रही"
+          }
+        }
+      ],
+      "docs": [
+        "aadhaar",
+        "domicile",
+        "income_cert",
+        "edu_marksheets",
+        "cap_admission",
+        "bank_passbook",
+        "scholarship_undertaking",
+        "photo"
+      ],
+      "apply": {
+        "mode": "portal",
+        "where": {
+          "en": "MahaDBT portal (Directorate of Higher Education)",
+          "mr": "MahaDBT पोर्टल (उच्च शिक्षण संचालनालय)",
+          "hi": "MahaDBT पोर्टल (उच्च शिक्षा संचालनालय)"
+        },
+        "url": "https://mahadbt.maharashtra.gov.in"
+      },
+      "caveat": {
+        "en": "SC/ST/OBC/VJNT students should look at Social Justice / Tribal Development scholarships instead (not in this demo). Only the first two children of a family benefit; fee-share varies by course type - the portal shows your exact percentage.",
+        "mr": "SC/ST/OBC/VJNT विद्यार्थ्यांनी समाज कल्याण / आदिवासी विकास शिष्यवृत्ती पाहावी (या डेमोमध्ये नाही). कुटुंबातील फक्त पहिल्या दोन अपत्यांना लाभ; शुल्काचा टक्का अभ्यासक्रमानुसार बदलतो - अचूक टक्का पोर्टलवर दिसेल.",
+        "hi": "SC/ST/OBC/VJNT छात्र समाज कल्याण / आदिवासी विकास छात्रवृत्ति देखें (इस डेमो में नहीं)। परिवार के केवल पहले दो बच्चों को लाभ; शुल्क का प्रतिशत पाठ्यक्रम के अनुसार बदलता है - सटीक प्रतिशत पोर्टल पर दिखेगा।"
+      },
+      "sources": [
+        "https://jdhenagpur.org/rajarshi-chhatrapati-shahu-maharaj-shikshan-shulkh-shishyavrutti-scheme/",
+        "https://www.buddy4study.com/article/rajarshi-chhatrapati-shahu-maharaj-scheme",
+        "https://www.indiascholarships.in/scholarships/maharashtra-rajarshi-shahu"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "ujjwala",
+      "level": "Central",
+      "short": {
+        "en": "Ujjwala",
+        "mr": "उज्ज्वला",
+        "hi": "उज्ज्वला"
+      },
+      "name": {
+        "en": "PM Ujjwala Yojana 2.0 (free LPG connection)",
+        "mr": "प्रधानमंत्री उज्ज्वला योजना २.० (मोफत गॅस जोडणी)",
+        "hi": "प्रधानमंत्री उज्ज्वला योजना 2.0 (मुफ्त एलपीजी कनेक्शन)"
+      },
+      "benefit": {
+        "en": "Deposit-free LPG connection with free stove and first refill (subsidy on refills as notified).",
+        "mr": "ठेवीशिवाय गॅस जोडणी, मोफत शेगडी व पहिले रिफिल (रिफिलवर अधिसूचित अनुदान).",
+        "hi": "बिना जमा राशि के LPG कनेक्शन, मुफ्त चूल्हा और पहला रिफिल (रिफिल पर अधिसूचित सब्सिडी)।"
+      },
+      "apply_status": "open",
+      "status_note": {
+        "en": "Apply online at pmuy.gov.in or offline at any LPG distributor with the KYC form.",
+        "mr": "pmuy.gov.in वर ऑनलाइन किंवा KYC अर्जासह कोणत्याही गॅस वितरकाकडे प्रत्यक्ष अर्ज करा.",
+        "hi": "pmuy.gov.in पर ऑनलाइन या KYC फॉर्म के साथ किसी भी LPG वितरक के पास आवेदन करें।"
+      },
+      "rules": [
+        {
+          "f": "gender",
+          "op": "eq",
+          "v": "female",
+          "label": {
+            "en": "Adult woman applicant",
+            "mr": "प्रौढ महिला अर्जदार",
+            "hi": "वयस्क महिला आवेदक"
+          }
+        },
+        {
+          "f": "age",
+          "op": "gte",
+          "v": 18,
+          "label": {
+            "en": "Age 18 or above",
+            "mr": "वय १८ वर्षे किंवा जास्त",
+            "hi": "आयु 18 वर्ष या अधिक"
+          }
+        },
+        {
+          "f": "has_lpg",
+          "op": "eq",
+          "v": false,
+          "label": {
+            "en": "No LPG connection in the household",
+            "mr": "घरात गॅस (LPG) जोडणी नाही",
+            "hi": "घर में LPG कनेक्शन नहीं"
+          }
+        },
+        {
+          "f": "household_poor",
+          "op": "eq",
+          "v": true,
+          "soft": true,
+          "label": {
+            "en": "Poor household (BPL / yellow card / AAY etc.)",
+            "mr": "गरीब कुटुंब (BPL / पिवळी शिधापत्रिका / AAY इ.)",
+            "hi": "गरीब परिवार (BPL / पीला कार्ड / AAY आदि)"
+          }
+        }
+      ],
+      "docs": [
+        "kyc_form",
+        "aadhaar",
+        "family_aadhaar",
+        "ration_card",
+        "bank_passbook",
+        "photo",
+        "declaration_14pt"
+      ],
+      "apply": {
+        "mode": "portal",
+        "where": {
+          "en": "pmuy.gov.in or your nearest LPG distributor",
+          "mr": "pmuy.gov.in किंवा जवळचे गॅस वितरक",
+          "hi": "pmuy.gov.in या नज़दीकी LPG वितरक"
+        },
+        "url": "https://www.pmuy.gov.in"
+      },
+      "caveat": {
+        "en": "If your household is not in a listed category (SC/ST, PMAY, AAY, SECC...), you may still qualify through the 14-point declaration.",
+        "mr": "तुमचे कुटुंब नमूद प्रवर्गात (SC/ST, PMAY, AAY, SECC...) नसेल तरी १४ मुद्द्यांच्या घोषणापत्राद्वारे पात्र ठरू शकता.",
+        "hi": "यदि आपका परिवार सूचीबद्ध श्रेणी (SC/ST, PMAY, AAY, SECC...) में नहीं है, तब भी 14-बिंदु घोषणा से पात्र हो सकते हैं।"
+      },
+      "sources": [
+        "https://www.pmuy.gov.in/faq.html",
+        "https://www.pmuy.gov.in/ujjwala2.html"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

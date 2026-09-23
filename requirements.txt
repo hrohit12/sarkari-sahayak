@@ -1,0 +1,5 @@
+fastapi>=0.110
+uvicorn>=0.29
+fpdf2>=2.8
+uharfbuzz>=0.39
+mcp>=1.2
