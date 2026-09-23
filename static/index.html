@@ -242,16 +242,22 @@ const t = () => I[state.lang];
 
 /* ---------- talking to the server ---------- */
 async function call(payload){
-  const r = await fetch('/api/chat', {method:'POST', headers:{'Content-Type':'application/json'},
-    body: JSON.stringify(Object.assign({lang:state.lang, profile:state.profile}, payload))});
-  const d = await r.json();
-  state.data = d;
-  state.profile = Object.assign({}, d.raw_profile);
-  DETAILS.forEach(k => { if (d.raw_profile[k]) $('#d-'+k).value = d.raw_profile[k]; });
-  (d.trace||[]).forEach(x => state.trace.push(x));
-  if (!state.selected || !d.results.some(x => x.id === state.selected))
-    state.selected = (d.results.find(x => x.status === 'eligible') || {}).id || null;
-  render();
+  try {
+    const r = await fetch('/api/chat', {method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(Object.assign({lang:state.lang, profile:state.profile}, payload))});
+    if (!r.ok) throw new Error('API Error: ' + r.statusText);
+    const d = await r.json();
+    state.data = d;
+    state.profile = Object.assign({}, d.raw_profile);
+    DETAILS.forEach(k => { if (d.raw_profile[k]) $('#d-'+k).value = d.raw_profile[k]; });
+    (d.trace||[]).forEach(x => state.trace.push(x));
+    if (!state.selected || !d.results.some(x => x.id === state.selected))
+      state.selected = (d.results.find(x => x.status === 'eligible') || {}).id || null;
+    render();
+  } catch(e) {
+    alert("Oops! There was a connection error with the server. Please try again.");
+    console.error(e);
+  }
 }
 function collectDetails(){ DETAILS.forEach(k => { const v = $('#d-'+k).value.trim(); if (v) state.profile[k] = v; else delete state.profile[k]; }); }
 function ask(){ collectDetails(); const text = $('#text').value; $('#text').value = ''; call({text, profile:state.profile}); }
@@ -281,7 +287,8 @@ function renderQuestions(){
       d.insertAdjacentHTML('beforeend', `<div class="num"><input type="text" inputmode="numeric"><button class="btn">${t().ok}</button></div>`);
       const inp = d.querySelector('input'), go = () => {
         let v = inp.value.replace(/,/g, '').replace(/[०-९]/g, d => '0123456789'['०१२३४५६७८९'.indexOf(d)]);
-        if(v !== '' && !isNaN(v)) answer(q.field, Number(v));
+        if(v !== '' && !isNaN(v)) { answer(q.field, Number(v)); }
+        else { inp.style.borderColor = 'red'; setTimeout(() => inp.style.borderColor = '', 1000); }
       };
       d.querySelector('button').onclick = go; inp.onkeydown = e => e.key === 'Enter' && go();
     } else {
